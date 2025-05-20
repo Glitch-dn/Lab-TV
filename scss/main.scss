@@ -1,0 +1,155 @@
+// ===============================
+// main.scss - Layout principale e card film
+// ===============================
+
+// ---- Layout principale ----
+main {
+    margin: 1%; // Margine esterno al contenuto principale
+}
+
+// ---- Griglia film / sezione row ----
+.row {
+    display: grid; // CSS Grid per disposizione card
+    grid-template-columns: repeat(5, 1fr); // 5 colonne di larghezza uguale
+    gap: 1.5%; // Spaziatura tra le card
+    padding: 20px; // Spaziatura interna della griglia
+    background-color: $background-color; // Sfondo griglia
+    overflow-x: auto; // Scroll orizzontale se necessario
+
+    // Nasconde la scrollbar (solo Webkit)
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+// ---- Sezione container ----
+// Serve come contenitore per titoli, card e frecce
+.section {
+    position: relative; // Permette il posizionamento assoluto delle frecce/arrows
+    overflow: hidden;   // Nasconde contenuto che esce dai bordi
+}
+
+// Titoli delle sezioni
+.section h2 {
+    font-size: 2rem;
+    color: $font-color;
+    text-shadow: $primary-color 0px 0px 10px; // Glow colorato
+    margin: 1% 0;
+    padding: 0 15px;
+    text-align: left;
+}
+
+// ---- Frecce carousel (arrows) ----
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-shadow: $primary-color 0px 0px 10px;
+    font-size: 3.5rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; // Freccia circolare
+    opacity: 0; // Invisibile di default
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background: none;
+}
+
+// Posizionamento frecce
+.left  { left: 15px; }
+.right { right: 15px; }
+
+// Mostra le frecce solo al passaggio del mouse sulla sezione
+.section:hover .arrow {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1); // Effetto zoom lieve
+}
+
+// ---- Effetto sfumatura ai lati della sezione ----
+.section::before,
+.section::after {
+    content: "";
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    z-index: 5;
+    pointer-events: none; // Clicca attraverso la sfumatura
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.8),      // Più scuro ai bordi
+        rgba(0, 0, 0, 0.4) 25%,  // Sfumatura più chiara
+        rgba(0, 0, 0, 0.2) 50%,  // Sfumatura intermedia
+        rgba(0, 0, 0, 0) 100%    // Trasparente al centro
+    );
+    opacity: 0; // Invisibile di default
+    transition: opacity 0.3s ease;
+}
+.section::before  { left: 0; }              // Lato sinistro
+.section::after   {
+    right: 0;                               // Lato destro
+    transform: scaleX(-1);                  // Inverte la sfumatura a destra
+}
+
+// Sfumature visibili al passaggio del mouse
+.section:hover::before,
+.section:hover::after {
+    opacity: 1;
+}
+
+// ---- Card film ----
+.movie-card {
+    margin: 1%;
+    max-width: 300px;
+    background-color: $background-color;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px $primary-color;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+
+    // Effetto hover: ingrandimento e ombra più intensa
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0px 15px $secondary-color;
+    }
+
+    // Immagine film
+    .movie-image {
+        width: 100%;
+    }
+
+    // Dettagli del film: overlay scuro sul fondo della card
+    .movie-details {
+        width: 100%;
+        padding: 1%;
+        background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+        color: white;
+        position: absolute;
+        bottom: 0;
+    }
+
+    // Titolo film (in overlay)
+    .movie-title {
+        font-size: 1rem;
+        font-weight: bold;
+        text-shadow: $primary-color 0px 0px 5px;
+    }
+    // Voto film (in overlay)
+    .movie-rating {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: $font-color;
+        text-shadow: $primary-color 0px 0px 5px;
+    }
+}

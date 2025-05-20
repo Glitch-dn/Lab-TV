@@ -1,0 +1,73 @@
+// ===========================
+// Stili per il popup trailer
+// ===========================
+
+// Overlay popup per trailer video
+.popup {
+  position: fixed; // Popup sempre visibile sopra il resto della pagina
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); // Sfondo scuro semi-trasparente per effetto overlay
+  display: flex;
+  justify-content: center; // Centro il contenuto orizzontalmente
+  align-items: center;     // Centro il contenuto verticalmente
+  z-index: 1000;           // Popup sopra tutti gli altri elementi
+  opacity: 0;              // Inizialmente invisibile (transizione)
+  transform: scale(0.1);   // Effetto zoom-in: molto piccolo all'avvio
+  pointer-events: none;    // Disabilita interazione se nascosto
+  transition: opacity 0.5s ease, transform 0.5s ease; // Transizioni fluide per apertura/chiusura
+}
+
+// Stato visibile del popup: effetto zoom e comparsa
+.popup.visible {
+  opacity: 1;              // Rende il popup visibile
+  transform: scale(1);     // Ripristina la dimensione normale
+  pointer-events: auto;    // Abilita l'interazione con il popup
+}
+
+// Contenitore del contenuto del popup (video, testo, bottone)
+.popup-content {
+  position: relative;
+  width: 80%;              // Larghezza contenitore (responsive)
+  max-width: 800px;        // Larghezza massima
+  background: #000;        // Sfondo nero opaco
+  border-radius: 10px;     // Angoli arrotondati per effetto moderno
+  overflow: hidden;        // Nasconde eventuali elementi fuori bordo
+}
+
+// Video trailer responsivo
+.popup-content iframe {
+  width: 100%;             // Il video occupa tutto lo spazio disponibile
+  height: 450px;           // Altezza fissa del player (modificabile per il mobile)
+}
+
+// Titolo del trailer, ombreggiato e ben visibile
+.trailer-title {
+  padding-left: 1%;
+  font-size: 24px;
+  margin-top: 1%;
+  text-shadow: $primary-color 0px 0px 10px; // Glow attorno al testo usando il colore primario
+}
+
+// Descrizione del trailer, testo piccolo con stessa ombra
+.trailer-description {
+  padding-left: 1%;
+  margin-top: 1%;
+  font-size: 14px;
+  text-shadow: $primary-color 0px 0px 10px;
+}
+
+// Bottone di chiusura (in alto a destra)
+// Aspetto minimale, solo icona, bianca su sfondo trasparente
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

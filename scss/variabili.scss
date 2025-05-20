@@ -1,0 +1,12 @@
+// Definizione di variabili
+$primary-color: #008f37;
+$secondary-color: #2ecc71;
+$font-color: white;
+$background-color: rgba(21, 21, 21, 0.882);
+$hover-color: rgb(16, 103, 20);
+@font-face {
+    font-family: 'Futura';
+    src: url('../font/futura/futura\ light\ bt.ttf');
+}
+
+$font-family: 'CustomFont', sans-serif;

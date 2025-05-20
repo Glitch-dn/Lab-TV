@@ -1,0 +1,137 @@
+// =======================
+// signup.scss - Stili form registrazione utente
+// =======================
+
+.logo {
+    width: 5%;
+    height: 100px;
+    background-image: url('../LabTV-Loghi/1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: .5% auto;
+}
+
+// =======================
+// Contenitore centrale del form signup
+// =======================
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+
+    form {
+        width: 40%;
+        border-radius: 5px;
+        padding: 1%;
+        box-shadow: 0 0 15px $primary-color;
+
+        // Etichette: full width e blocco per allineamento con input
+        label {
+            display: block;
+            width: 100%;
+        }
+
+        // Input testuali: aspetto uniforme, bordi arrotondati e focus visivo
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid $primary-color;
+            font-size: 1em;
+
+            // Effetto evidenza al focus
+            &:focus {
+                outline: none;
+                border-color: $secondary-color;
+                box-shadow: 0 0 5px $secondary-color;
+            }
+        }
+
+        // Bottone di submit: colore primario, bordi arrotondati, effetto hover
+        button {
+            color: $font-color;
+            width: 30%;
+            margin: 1% auto;
+            padding: 1%;
+            background-color: $primary-color;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: $secondary-color;
+                box-shadow: 0 0 5px $primary-color;
+            }
+        }
+
+        // ==========================================
+        // Blocco di selezione icona profilo (PNG 32x32)
+        // ==========================================
+        .icon-selection {
+            display: flex; // Allinea le icone orizzontalmente
+            justify-content: center;
+            gap: 1.5em; // Spazio tra icone
+            margin: 15px 0 20px 0;
+
+            label {
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+
+                // Nasconde i radio per rendere selezionabile l'immagine
+                input[type="radio"] {
+                    display: none;
+                }
+
+                // Immagini profilo: sempre 32x32px, rotonde, centrali e nitide
+                .icon-thumb {
+                    width: 32px;
+                    height: 32px;
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain; // Impedisce distorsione o sgranatura
+                    border-radius: 50%; // Effetto rotondo
+                    border: 2px solid transparent;
+                    box-shadow: 0 0 6px rgba(0,0,0,.16);
+                    transition: border-color 0.2s, box-shadow 0.2s;
+                    margin-bottom: 5px;
+                    background: #fff;
+                }
+
+                // Evidenzia l'icona selezionata con bordo e ombra colorati
+                input[type="radio"]:checked + .icon-thumb {
+                    border-color: $secondary-color;
+                    box-shadow: 0 0 8px $secondary-color, 0 0 0 2px $primary-color inset;
+                }
+            }
+        }
+
+        // ==========================================
+        // Link Termini e Privacy: colorazione personalizzata
+        // ==========================================
+        .terms {
+            margin: 10px 0;
+            font-size: 0.95em;
+
+            // Link a Termini e Privacy: colore secondario, underline
+            a {
+                color: $secondary-color;
+                text-decoration: underline;
+                transition: color 0.2s;
+
+                // Una volta cliccati (visited), diventano colore primario
+                &:visited {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}

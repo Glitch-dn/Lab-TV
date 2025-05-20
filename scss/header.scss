@@ -1,0 +1,177 @@
+// ===============================
+// header.scss - Stile per Main Header e Navigazione
+// ===============================
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    padding: 0 2%;
+    background: linear-gradient(to bottom, $background-color, rgba(21, 21, 21, 0));
+    transition: background-color 0.3s ease; // Transizione per variazione background
+    position: fixed; // Header fisso in alto
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1000; // Sempre sopra gli altri elementi
+
+    // Logo in alto a sinistra
+    .logo {
+        background-image: url('../LabTV-Loghi/4.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 120px; 
+        height: 60px;
+        cursor: pointer;
+    }
+
+    // Navbar principale
+    .nav-links {
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul {
+            width: 100%;
+            display: flex;
+            list-style: none;
+            gap: 2%;
+            margin: 0;
+            padding: 0;
+
+            a {
+                text-decoration: none;
+                color: $font-color;
+                padding: 10px 20px;
+                transition: all 0.3s ease;
+                &:hover {
+                    color: $secondary-color;
+                    text-shadow: $primary-color 0px 0px 10px;
+                }
+            }
+        }
+    }
+
+    // Icone profilo utente e menù di servizio
+    .profile-icons {
+        width: 50%;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+
+        // Icone profilo (avatar, notifiche, ecc.)
+        .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            // Prima icona: avatar utente base64
+            &:nth-child(1) {
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAnXAAAJ1wGxbhe3AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAA0tJREFUWIXFll9v22QUxh+fWm2t5rWq2Fmrpo5s0cD1BGhDDPgEXAMSXQHxDQZfgn6BXQFtJyS+xpi2XYx7lKRx2jgRiu20jS25aWK/XGTO0jZt3oS1e65yTt7nnJ/ffzbwjiVNGtBoNIxer/dzHMd34zheBYC5ubl/ZVn+m4i2DcNo3AhAs9l8EATBXhiGJud8vFmSkMlk7Ewm820+n3/+1gBs2/6j3W5/c1XjiyIiZLPZPdM0H/5vgP39/ZdHR0f30lhRFOi6DsYYFhYWAADdbhdBEMDzPERRNPQuLy+/3NjY+GRmgGq1uttutzeBwfQahoFcLnelmXMO13XhOA7S2dJ1/YlpmptTAxweHn7muu5TzjkkSUKxWARjTKhIEAQol8vgnIOIsLq6+vna2tpfIl5Kf0RRtJM+hWEYws0BgDGG9fV1AECSJAjD8DdRLwGDoxaGoQW8WfNplcvloCgKACAIgvfq9XpeGKDf7z8aWUNI0sTr4ZIkSYKmaQAGeyOO40fTAHyUJlRVnbr5OG8cxx8LA8RxfCdNzM/Pzwww6k2S5M41Q88DSJI0vHFEL59J4pwLrSMBABG5aaLX683c9Ozs7E1hIl8YQJblV2mi0+nMDDDqlWX5mTAAEW2nO9/zvJmWgXMOz/MADE4EET0WBjAMo8EYqwJAFEVwXfd61xi5rovT01MAAGOsXCgU9oUBAGBpaWmTaBA6joMgCISbdzodOI4zKEiExcXFH0W9Q4B8Pv88m83uAYPpLJfLaLVa1y4H5xytVguVSmU4jjFWKhQKT0UBLh2VSqXy4vj4+H4aK4oCTdOgquq513Gn04HnecNpH5WmaTuWZX03EwAA1Gq13Xa7vZkkidBTEBEYY6WTk5P3p4WgcUnTNB+urKx8qqpq9br3giRJUFW1rOv6F8Vi8QNN03bS/3zf37Jte+dKc1pj0oB6vZ5PkuSnfr//4euPUiIiV5blZ0T0+OJut237d9/3t9JY07Rdy7K2LhUWBZhFtm3/6vv+9yMQf1qW9fWtAUwDcWMAohA3CiACceMAkyDGHsO3LcuyftA0bTeNfd//6uDg4JdbA3gNsTUK0e12v7yt3udUq9W2S6XSP81m88E7Abio/wDGZ3i4a0MxbwAAAABJRU5ErkJggg==');
+            }
+            // Terza icona: altra icona base64
+            &:nth-child(3) {
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAI6gAACOoBxNcq+QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMXSURBVFiF7ZfPbxtFFMc/b2bsOIldk4AsKEVVqkZQQRG/CrEUIXEDIVU9cQBxQ+JCq55QEBKIC0UtFzggceWIuPTCn9C0hVaitBdcCahQ0uLYromTeOOdeRzS9BdZk122PfG97byZ9/3szOybHSGjTp099ZEgh4FlEXl/5sDMd1nySJZB8z/Mv4by/W1NkXd+z+xzswtpc5ksAAReuqtlpDAoPJslVaoZ+LXTeaDk/aFoPXpLkCnnCjVUib3/01jbcM5+Gzt38rFqtZ0rQKOhI+XJ9hzKHFAa3lsjVD7rXZ88Nj0t0X8G+KPV2mU31nv/ZpuzlmLBYczGCoYQWB/ExN7fwlB+cupfrdVqVzMDtNvtahR0HtgHMFIsUhkbxVnLIPaEsGFojKXgLLH3tLp/oaqb6c/1l7uzU1NT/SQPNwyg7/VzkQ3z8ugo46MlVtb6rEYRIYQ7+hpjKDh7mzmAPl8q7/gA+DjJI3EGrl27vidY/wtgS8Ui1fI4neVl1gfxMOat1LXB76rVar2tgomfodrwBmABKuNj9FbXspgDVIO4V5KCyQDoCwBF5zAirEb/uqETpUafSQ0A+hAAIsTe37W26SSByaRY8iYUMSisDwa0uoPM5gBBkl80WynOUf8D3BcAQRLrTTJAoJofgu5IDyA8nJs97EwFoKoOeDAvAIFHUwEsNjt1bpThnPREs9l8ZNsAYsLrOZoDmAH24LYAVNWAHMoZADH65rYArrZabwOP5w2A8vJis/2Pmb0DoNHQEZBPcjfflOgJVS0kAlQm218Au+8ZAOxbXGp/tSXAQqt1VJV376E5ACK8s7i09N7m863j2JvzGH9YRPYH5SmBJyG3athVuGSEi6r6swZ74SbQsFELnc5u6/20V7NXjO5d7a3MWGMnTMGOWWPHjTFlgBBCzwe/4uN4LY7jTrlSmdcgl62Ey97axs6Jid+TPFLdjE6fPT2n6LGhnYQP6wfqn243Z6rT8MpvV06IyteJ3iLf9Hv942lypr4dq6qc+fHMwaDhiCBPA4JwQYN+WX+xflJEUv08/g0NvCkNiwWiDgAAAABJRU5ErkJggg==');
+            }
+            // Quinta icona: profilo utente immagine locale
+            &:nth-child(5) {
+                background-image: url('../LabTV-Loghi/profile1.png');
+                background-size: cover;
+            }
+        }
+
+        // Icona di ritorno/back
+        .iconBack {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            & + p {
+                width: 70%;
+            }
+        }
+
+        // Elemento animazione icona (inizialmente nascosto)
+        .toggle-element {
+            display: none;
+        }
+
+        // Barra di ricerca profilo (inizialmente nascosta)
+        .input-bar {
+            position: absolute;
+            top: 22px;
+            right: 180px;
+            display: none;
+            z-index: 10;
+            input {
+                width: 200px;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 14px;
+                background-color: $background-color;
+                color: white;
+                transition: all 0.2s ease;
+                &:focus {
+                    outline: none;
+                    border: $primary-color 2px solid;
+                    box-shadow: $secondary-color 0px 0px 10px;
+                }
+            }
+        }
+
+        // Dropdown menu per opzioni profilo
+        .dropdown-menu {
+            top: 72px;
+            right: 40px;
+            position: absolute;
+            background-color: $background-color;
+            border-radius: 5px;
+            display: none;
+            z-index: 10;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                flex-direction: column;
+
+                li {
+                    a {
+                        display: flex;
+                        gap: 5%;
+                        align-items: center;
+                        line-height: 2em;
+                        text-decoration: none;
+                        color: $font-color;
+                        padding: 2%;
+                        &:hover {
+                            color: $secondary-color;
+                            text-shadow: $primary-color 0px 0px 10px;
+                        }
+                        // Immagine news all'interno del menù
+                        .news {
+                            min-width: 112px;
+                            min-height: 63px;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Menù aggiuntivi (dimensioni personalizzate)
+        #menu1 {
+
+            width: 30%;
+        }
+        #menu2 {
+            width: 10%;
+        }
+    }
+}

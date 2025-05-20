@@ -1,0 +1,294 @@
+// ===============================
+// schermi.scss - Responsive design per schermi medi e piccoli
+// ===============================
+
+// ---------
+// Tablet e schermi medi (max-width: 1024px)
+// ---------
+@media screen and (max-width: 1024px) {
+
+    // ==============
+    // SIGNUP responsive
+    // ==============
+    .signup-container {
+        form {
+            width: 70% !important;
+            padding: 3%;
+
+            button {
+                width: 40%;
+                font-size: 1.1em;
+            }
+        }
+    }
+
+    // ==============
+    // PROFILES responsive
+    // ==============
+    .profiles-container {
+        gap: 4vw;
+        margin: 5% auto;
+
+        .profile-card {
+            width: 18%;
+            padding: 3% 2%;
+            font-size: 1em;
+
+            img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto 10px auto;
+            }
+            p {
+                font-size: 1.1em;
+                margin-bottom: 12px;
+            }
+            button {
+                font-size: 1em;
+                padding: 4% 2%;
+            }
+        }
+    }
+    .welcome {
+        font-size: 2em;
+    }
+
+    // ==============
+    // INDEX responsive - Sezioni film
+    // ==============
+    // Su tablet: la .row mostra solo 4 card visibili, le altre sono nascoste
+    .row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5%;
+        padding: 15px;
+        overflow: hidden;
+        width: 100%;
+    }
+    .row > .movie-card {
+        // Nascondi tutte le card dopo la quarta
+        &:nth-child(n+5) {
+            display: none !important;
+        }
+        max-width: 22vw;
+        min-width: 160px;
+        font-size: 0.98em;
+    }
+    .section h2 {
+        font-size: 1.4rem;
+        padding: 0 10px;
+    }
+    .arrow {
+        font-size: 2.2rem;
+        width: 38px;
+        height: 38px;
+    }
+
+    // ==============
+    // NAVBAR responsive (Tablet)
+    // ==============
+    .nav-list li {
+        display: none;
+
+        &:nth-child(1), // Home
+        &:nth-child(2), // Serie TV
+        &:nth-child(3), // Film
+        &:nth-child(6)  // Preferiti
+        {
+            display: inline-block;
+        }
+    }
+
+    // ==============
+    // HERO BANNER - tablet
+    // ==============
+    .hero-arrow {
+        font-size: 1.8rem !important;
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    // ==============
+    // MENU1 e MENU2 responsive - tablet
+    // ==============
+    // Aumenta la larghezza di #menu1 e #menu2 su tablet per evitare che si schiaccino
+    #menu1,
+    #menu2 {
+        width: 50vw !important; // Più larghi, puoi regolare tra 70vw-90vw a piacere
+        min-width: 350px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// ---------
+// Mobile e schermi piccoli (max-width: 768px)
+// ---------
+@media screen and (max-width: 768px) {
+
+    // ==============
+    // SIGNUP mobile
+    // ==============
+    .signup-container {
+        padding: 0;
+        form {
+            width: 95% !important;
+            padding: 4% 2%;
+            font-size: 1em;
+
+            label {
+                font-size: 1em;
+            }
+            input, select {
+                font-size: 1em;
+                padding: 8px;
+            }
+            button {
+                width: 25% !important;
+                font-size: 1em;
+                padding: 3%;
+            }
+            .icon-selection {
+                gap: 1em;
+
+                .icon-thumb {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+        }
+    }
+
+    // ==============
+    // PROFILES mobile
+    // ==============
+    .profiles-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5vw;
+        margin: 10% auto;
+
+        .profile-card {
+            width: 80%;
+            min-width: 180px;
+            max-width: 350px;
+            padding: 6% 4%;
+            margin-bottom: 2em;
+            font-size: 1em;
+
+            img {
+                width: 48px;
+                height: 48px;
+                object-fit: cover;
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto 10px auto;
+            }
+            p {
+                font-size: 1em;
+                margin-bottom: 10px;
+            }
+            button {
+                width: 100%;
+                font-size: 0.95em;
+                padding: 10px 0;
+            }
+        }
+    }
+    .welcome {
+        font-size: 1.2em;
+        margin: 1.5em 0 0.5em 0;
+    }
+
+    // ==============
+    // INDEX mobile - Sezioni film
+    // ==============
+    // Su mobile: la .row mostra solo 2 card visibili per riga, le altre sono nascoste
+    .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3vw;
+        padding: 10px;
+        overflow: hidden;
+        width: 100%;
+    }
+    .row > .movie-card {
+        // Nascondi tutte le card dopo la seconda
+        &:nth-child(n+3) {
+            display: none !important;
+        }
+        max-width: 46vw;
+        min-width: 120px;
+        font-size: 0.96em;
+        margin: 0 auto 2vw auto;
+    }
+    .section {
+        padding: 0 2vw;
+    }
+    .section h2 {
+        font-size: 1.1rem;
+        padding: 0 4px;
+    }
+    .arrow {
+        font-size: 1.7rem;
+        width: 28px;
+        height: 28px;
+        top: 60%;
+    }
+
+    // ==============
+    // NAVBAR responsive (Mobile)
+    // ==============
+    .nav-list li {
+        display: none !important;
+    }
+
+    // ==============
+    // HERO BANNER - mobile
+    // ==============
+    .hero-arrow {
+        font-size: 1.1rem !important;
+        width: 22px !important;
+        height: 22px !important;
+        padding: 0 !important;
+    }
+    .hero-banner .hero-content p,
+    .hero-banner .hero-content article {
+        display: none !important;
+    }
+
+    // ==============
+    // FOOTER - mobile
+    // ==============
+    .footer-links {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 1.5em !important; // Più spazio tra i link
+        padding: 0;
+        margin: 1.5em 0 0.5em 0 !important;
+        text-align: center !important;
+    }
+    .footer-links li {
+        width: 100%;
+        margin: 0.5em 0 !important;
+    }
+
+    // ==============
+    // MENU1 e MENU2 responsive - mobile
+    // ==============
+    // Aumenta ulteriormente la larghezza di #menu1 e #menu2 su mobile
+    #menu1,
+    #menu2 {
+        width: 50vw !important; // Quasi tutto lo schermo
+        min-width: unset;
+        max-width: 100vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,141 @@
+// ===============================
+// hero.scss - Hero banner stile principale
+// ===============================
+
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    overflow: hidden;
+
+    .hero-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .hero-video,
+        .hero-image {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 1;
+            transition: opacity 0.5s ease-in-out;
+            object-fit: cover;
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .shadow {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(to top, rgb(21, 21, 21), rgba(0, 0, 0, 0.144));
+            z-index: 2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 60%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            text-align: center;
+            color: $font-color;
+
+            h1 {
+                font-size: 2.5rem;
+                text-shadow: $primary-color 0px 0px 15px;
+                transition: opacity 0.5s ease-in-out;
+                opacity: 1;
+            }
+            p {
+                font-size: 1.3rem;
+                transition: opacity 0.5s ease-in-out;
+                opacity: 1;
+            }
+            article {
+                color: $font-color;
+                transition: opacity 0.5s ease-in-out;
+                opacity: 1;
+            }
+            .cta-button {
+                margin: 2%;
+                border-radius: 50%;
+                padding: 15px 20px;
+                font-size: 1.2rem;
+                color: $font-color;
+                border: 1px solid $primary-color;
+                background-color: transparent;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                &:hover {
+                    background-color: $hover-color;
+                    box-shadow: $primary-color 0px 0px 15px;
+                }
+            }
+        }
+    }
+
+        // FRECCE HERO SLIDER
+        .hero-arrow {
+            position: absolute;
+            background-color: transparent;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9;
+            color: $font-color;
+            text-shadow: 0 0 10px $primary-color;
+            border: none;
+            font-size: 5rem;
+            cursor: pointer;
+            transition: background 0.18s, box-shadow 0.18s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                text-shadow: 0 0 10px $secondary-color;
+            }
+            &.hero-arrow-left {
+                left: 24px;
+            }
+            &.hero-arrow-right {
+                right: 24px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            
+        }
+        .hero-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 40px;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 12px;
+        }
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            border: 2px solid $primary-color;
+            cursor: pointer;
+            transition: background 0.25s, box-shadow 0.25s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+            &.active {
+                background: $primary-color;
+                box-shadow: 0 2px 12px $primary-color;
+            }
+            &:hover {
+                background: $primary-color;
+            }
+    }
+}

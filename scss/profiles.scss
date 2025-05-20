@@ -1,0 +1,67 @@
+// ============================
+// Stili pagina selezione profilo utente
+// ============================
+
+// Logo in alto, centrato e ridimensionato
+.logo {
+    width: 5%;
+    height: 100px;
+    background-image: url('../LabTV-Loghi/1.png'); // Percorso logo principale
+    background-size: cover;                        // Immagine riempie tutto il box
+    background-repeat: no-repeat;                  // Nessuna ripetizione
+    background-position: center;                   // Centra il logo
+    margin: 1% auto;                              // Margine superiore e centratura orizzontale
+}
+
+// Titolo di benvenuto, grande e con effetto glow
+.welcome {
+    text-align: center;
+    font-size: 3em;                               // Titolo molto grande
+    text-shadow: $primary-color 0 0 15px;         // Glow colorato con il primary color
+}
+
+// Contenitore dei profili, centrato e a griglia responsive
+.profiles-container {
+    display: flex;
+    flex-wrap: wrap;                              // Permette il ritorno a capo dei profili
+    justify-content: center;                      // Centra i profili orizzontalmente
+    gap: 3%;                                      // Spazio tra le card
+    margin: 10% auto;                             // Spazio verticale e centratura
+
+    // Card profilo singolo
+    .profile-card {
+        width: 10%;                              // Larghezza card (responsive)
+        background-color: $background-color;     // Sfondo card
+        border-radius: 10px;                     // Angoli arrotondati
+        padding: 2%;                             // Spaziatura interna
+        text-align: center;
+        box-shadow: 0 0 15px $primary-color;     // Ombra colorata
+
+        // Effetto hover: ingrandimento e cambio ombra
+        &:hover {
+            transform: scale(1.05);              // Leggero zoom
+            transition: transform 0.2s;
+            box-shadow: 0 0 20px $secondary-color;
+            cursor: pointer;
+        }
+
+        // Bottone all'interno della card profilo
+        button {
+            width: 100%;                        // Occupa tutta la larghezza della card
+            padding: 1%;
+            font-size: 1em;
+            background-color: $primary-color;    // Colore principale
+            border: none;
+            border-radius: 5px;
+            color: $font-color;                  // Testo leggibile
+            cursor: pointer;
+
+            // Hover sul bottone: cambio colore e ombra
+            &:hover {
+                background-color: $secondary-color;
+                box-shadow: 0 0 5px $primary-color;
+                transition: background-color 0.3s;
+            }
+        }
+    }
+}

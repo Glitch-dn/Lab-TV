@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LabTV - Distribuzione online di film e serie TV">
+    <title>LabTV - Home</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script/config.js"></script>
+    <script src="script/header.js" defer></script>
+    <script src="script/main.js" defer></script>
+    <script src="script/hero.js" defer></script>
+    <script src="script/profiles.js" defer></script>
+</head>
+<body>
+    <!-- Header con menu di navigazione -->
+    <header class="main-header">
+        <div class="logo"></div>
+        <nav class="nav-links">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Serie TV</a></li>
+                <li><a href="#">Film</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Preferiti</a></li>
+            </ul>
+            <div class="profile-icons">
+                <div class="icon"></div>
+                <div class="input-bar toggle-element" id="input-bar1">
+                    <input type="text" placeholder="Scrivi qui..." />
+                </div>
+                <div class="icon"></div>
+                <div class="dropdown-menu toggle-element" id="menu1">
+                    <ul>
+                        <li><a href="#"><div class="news"></div><p></p></a></li>
+                        <li><a href="#"><div class="news"></div><p></p></a></li>
+                    </ul>
+                </div>
+                <div class="icon" id="profile"></div>
+                <div class="dropdown-menu toggle-element" id="menu2">
+                    <ul>
+                        <!-- Menu profilo popolato dinamicamente -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <iframe class="hero-video" style="display: none;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="hero-image"></div>
+            <div class="shadow"></div>
+            <div class="hero-overlay">
+                <h1></h1>
+                <p></p>
+                <article></article>
+                <button class="cta-button">▶</button>
+            </div>
+            <button class="hero-arrow hero-arrow-left" aria-label="Precedente">&lt;</button>
+            <button class="hero-arrow hero-arrow-right" aria-label="Successivo">&gt;</button>
+            <!-- Pallini per lo slider hero -->
+            <div class="hero-dots"></div>
+        </div>
+    </section>
+
+    <!-- Catalogo diviso in categorie -->
+    <main>
+        <!-- Griglia dei film -->
+        <div class="section">
+            <h2>Scelti per te</h2>
+            <div class="arrow left"><div class="arrow-symbol">&lt;</div></div>
+            <div class="row one">
+              <!-- I div dei film verranno generati dinamicamente qui -->
+            </div>
+            <div class="arrow right"><div class="arrow-symbol">&gt;</div></div>
+        </div>
+        <div class="section">
+            <h2>Aggiunti di recente</h2>
+            <div class="arrow left"><div class="arrow-symbol">&lt;</div></div>
+            <div class="row two">
+              <!-- I div verranno generati dinamicamente qui -->
+            </div>
+            <div class="arrow right"><div class="arrow-symbol">&gt;</div></div>
+        </div>
+        <div class="section">
+            <h2>Action</h2>
+            <div class="arrow left"><div class="arrow-symbol">&lt;</div></div>
+            <div class="row three">
+              <!-- I div verranno generati dinamicamente qui -->
+            </div>
+            <div class="arrow right"><div class="arrow-symbol">&gt;</div></div>
+        </div>
+        <div class="section">
+            <h2>90's - 00's</h2>
+            <div class="arrow left"><div class="arrow-symbol">&lt;</div></div>
+            <div class="row four">
+              <!-- I div verranno generati dinamicamente qui -->
+            </div>
+            <div class="arrow right"><div class="arrow-symbol">&gt;</div></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <hr>
+    <footer>
+        <p>&copy; 2023 LabTV. Tutti i diritti riservati.</p>
+        <div class="social-icons">
+            <div><a href="https://www.instagram.com" target="_blank"></a></div>
+            <div><a href="https://www.facebook.com" target="_blank"></a></div>
+            <div><a href="mailto:your-email@example.com" target="_blank"></a></div>
+        </div>
+        <ul class="footer-links">
+            <li><a href="#">Centro assistenza</a></li>
+            <li><a href="#">Audiodescrizione</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Lavora con Noi</a></li>
+            <li><a href="#">Chi siamo</a></li>
+        </ul>
+    </footer>
+    <div id="trailer-popup" class="popup hidden">
+        <div class="popup-content">
+          <button id="close-popup" class="close-popup">✖</button>
+          <iframe id="trailer-iframe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <h2 class="trailer-title"></h2>
+          <p id="trailer-description" class="trailer-description"></p>
+        </div>
+    </div>
+</body>
+</html>

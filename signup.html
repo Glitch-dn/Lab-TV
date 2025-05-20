@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LabTV - Distribuzione online di film e serie TV">
+    <title>LabTV - Home</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <!-- Assicurati che il file signup.scss sia compilato in styles.css o includilo -->
+    <script src="script/signup.js" defer></script>
+</head>
+<body>
+    <div class="logo"></div>
+    <h1 class="welcome">Registrati</h1>
+    <div class="signup-container">
+        <form id="signup-form">
+            <label for="username">Nome utente:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Indirizzo:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="zip">CAP:</label>
+            <input type="text" id="zip" name="zip" required>
+
+            <label for="city">Comune:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="country">Nazione:</label>
+            <input type="text" id="country" name="country" required>
+
+            <label for="phone">Telefono:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Ripeti Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <!-- ====================================== -->
+            <!-- Blocco di selezione icona profilo -->
+            <!-- ====================================== -->
+            <label>Scegli un'icona profilo:</label>
+            <div class="icon-selection">
+                <label>
+                    <input type="radio" name="profile-icon" value="LabTV-Loghi/profile1.png" checked>
+                    <img src="../LabTV-Loghi/profile1.png" alt="Profile 1" class="icon-thumb">
+                </label>
+                <label>
+                    <input type="radio" name="profile-icon" value="LabTV-Loghi/profile2.png">
+                    <img src="../LabTV-Loghi/profile2.png" alt="Profile 2" class="icon-thumb">
+                </label>
+                <label>
+                    <input type="radio" name="profile-icon" value="LabTV-Loghi/profile3.png">
+                    <img src="../LabTV-Loghi/profile3.png" alt="Profile 3" class="icon-thumb">
+                </label>
+            </div>
+            <!-- ====================================== -->
+
+            <div class="terms">
+                <input type="radio" id="terms" name="terms" required>
+                <label for="terms">Accetto i <a href="terms.html" target="_blank">Termini di Servizio</a> e la <a href="privacy.html" target="_blank">Privacy</a></label>
+            </div>
+
+            <button type="submit">Registrati</button>
+        </form>
+    </div>
+</body>
+</html>
